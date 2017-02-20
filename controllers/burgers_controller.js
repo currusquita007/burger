@@ -26,8 +26,8 @@ router.get("/", function(req, res) {
 
 
 router.post("/", function(req, res) {
-  burger.insertOne(
-    "burger_name", "devoured", "date", req.body.burger_name, req.body.devoured, req.body.date, function() {
+ 
+  burger.insertOne('burger_name', req.body.burger_name, function() {
     res.redirect("/");
   });
 });
@@ -36,7 +36,8 @@ router.post("/", function(req, res) {
 router.put("/:id", function(req, res) {
 // once user click on "eat burger" button, we updated the status
 // of devoured from false to true
-  burger.update("devoured", true, "id", req.params.id, function() {
+console.log(req.params.id);
+  burger.update(devoured, 1, id, [req.params.id], function() {
     res.redirect("/");
   });
 });

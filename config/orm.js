@@ -24,10 +24,10 @@ var orm = {
     },
 
 
-    insertOne: function(tableName, col1, col2, col3, val1, val2, val3, cb) {
+    insertOne: function(tableName, col1, val1, cb) {
 
-        var queryString = "INSERT INTO ?? (?,?,?) VALUES (?,?,?)";
-        connection.query(queryString, [tableName, col1, col2, col3, val1, val2, val3], function(err, result) {
+        var queryString = "INSERT INTO ?? ? VALUES ?";
+        connection.query(queryString, [tableName, col1, val1], function(err, result) {
             if (err) throw err;
 
             cb(result);
